@@ -1,0 +1,19 @@
+{
+  "name": "a-graphql",
+  "version": "1.0.0",
+  "description": "GraphQL service for A project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thetys/a-graphql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thetys/a-graphql/issues"
+  },
+  "homepage": "https://github.com/thetys/a-graphql#readme"
+}
