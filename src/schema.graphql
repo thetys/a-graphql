@@ -8,6 +8,26 @@ type Query {
     occurrences: [Occurrence!]!
 }
 
+type Mutation {
+    createCharacter(name: String!, description: String!): Character!
+    updateCharacter(id: ID!, name: String, description: String): Character
+    deleteCharacter(id: ID!): Character
+    createPlace(name: String!, description: String!): Place!
+    updatePlace(id: ID!, name: String, description: String): Place
+    deletePlace(id: ID!): Place
+    createOccurrence(
+        name: String!, description: String!,
+        startDate: DateTime!, endDate: DateTime,
+        characters: [ID!], places: [ID!]
+    ): Occurrence!
+    updateOccurrence(
+        id: ID!, name: String, description: String,
+        startDate: DateTime, endDate: DateTime,
+        characters: [ID!], places: [ID!]
+    ): Occurrence
+    deleteOccurrence(id: ID!): Occurrence
+}
+
 type Character {
     id: ID!
     name: String!
