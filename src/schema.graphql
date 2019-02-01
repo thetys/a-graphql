@@ -1,0 +1,31 @@
+scalar Date
+scalar Time
+scalar DateTime
+
+type Query {
+    characters: [Character!]!
+    places: [Place!]!
+    occurrences: [Occurrence!]!
+}
+
+type Character {
+    id: ID!
+    name: String!
+    description: String!
+}
+
+type Place {
+    id: ID!
+    name: String!
+    description: String!
+}
+
+type Occurrence {
+    id: ID!
+    name: String!
+    description: String!
+    startDate: DateTime!
+    endDate: DateTime
+    characters: [Character!]!
+    places: [Place!]!
+}

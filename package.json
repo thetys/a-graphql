@@ -2,9 +2,9 @@
   "name": "a-graphql",
   "version": "1.0.0",
   "description": "GraphQL service for A project",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prisma:deploy": "prisma deploy"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/thetys/a-graphql/issues"
   },
-  "homepage": "https://github.com/thetys/a-graphql#readme"
+  "homepage": "https://github.com/thetys/a-graphql#readme",
+  "dependencies": {
+    "graphql-iso-date": "^3.6.1",
+    "graphql-yoga": "^1.17.1",
+    "prisma-client-lib": "^1.25.4"
+  }
 }
