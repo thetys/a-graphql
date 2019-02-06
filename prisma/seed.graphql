@@ -1,0 +1,35 @@
+mutation {
+    occurrence1: createOccurrence(data: {
+        name: "Evasion de Centrale Moutte"
+        description: "A déclenche une émeute au sein de Centrale Moutte et s'évade dans la confusion."
+        startDate: "2017-11-21T00:00:00"
+        places: {
+            create: {
+                name: "Centrale Moutte"
+                description: "Sordide prison de Loire-atlantique"
+            }
+        }
+        characters: {
+            create: {
+                name: "A"
+                description: "Personnage principal"
+            }
+        }
+    }) {
+        id
+    }
+
+    character2: createCharacter(data: {
+        name: "Cathy Penneflamme"
+        description: "Journaliste au monde depuis 1875"
+    }) {
+        id
+    }
+
+    place2: createPlace(data: {
+        name: "JJ Facility"
+        description: "Centre de détention longue durée personnalisé"
+    }) {
+        id
+    }
+}

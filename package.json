@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/thetys/a-graphql#readme",
   "dependencies": {
+    "graphql": "^14.1.1",
     "graphql-iso-date": "^3.6.1",
     "graphql-yoga": "^1.17.1",
     "prisma-client-lib": "^1.25.4"
