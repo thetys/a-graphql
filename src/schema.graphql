@@ -4,8 +4,11 @@ scalar DateTime
 
 type Query {
     characters: [Character!]!
+    character(id: ID!): Character
     places: [Place!]!
+    place(id: ID!): Place
     events: [Event!]!
+    event(id: ID!): Event
 }
 
 type Mutation {
