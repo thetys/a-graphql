@@ -4,12 +4,12 @@ const {prisma} = require('./generated/prisma-client');
 
 const Query = require('./resolvers/Query');
 const Mutation = require('./resolvers/Mutation');
-const Occurrence = require('./resolvers/Occurrence');
+const Event = require('./resolvers/Event');
 
 const resolvers = {
   Query,
   Mutation,
-  Occurrence,
+  Event,
   Date: GraphQLDate,
   Time: GraphQLTime,
   DateTime: GraphQLDateTime
@@ -26,4 +26,7 @@ const server = new GraphQLServer({
   }
 });
 
-server.start(() => console.log(`Server is running on http://localhost:4000`));
+server.start(
+    { endpoint: '/' },
+    ({ endpoint }) => console.log(`Server is running on http://localhost:4000${endpoint}`)
+);

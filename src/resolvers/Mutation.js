@@ -48,8 +48,8 @@ function deletePlace(parent, args, context) {
   });
 }
 
-function createOccurrence(parent, args, context) {
-  return context.prisma.createOccurrence({
+function createEvent(parent, args, context) {
+  return context.prisma.createEvent({
     description: args.description,
     name: args.name,
     startDate: args.startDate,
@@ -72,8 +72,8 @@ function createOccurrence(parent, args, context) {
   });
 }
 
-function updateOccurrence(parent, args, context) {
-  return context.prisma.updateOccurrence({
+function updateEvent(parent, args, context) {
+  return context.prisma.updateEvent({
     data: {
       description: args.description,
       name: args.name,
@@ -85,8 +85,8 @@ function updateOccurrence(parent, args, context) {
   });
 }
 
-function deleteOccurrence(parent, args, context) {
-  return context.prisma.deleteOccurrence({
+function deleteEvent(parent, args, context) {
+  return context.prisma.deleteEvent({
     id: args.id,
   });
 }
@@ -98,7 +98,7 @@ module.exports = {
   createPlace,
   updatePlace,
   deletePlace,
-  createOccurrence,
-  updateOccurrence,
-  deleteOccurrence,
+  createEvent,
+  updateEvent,
+  deleteEvent,
 };

@@ -1,5 +1,5 @@
 mutation {
-    occurrence1: createOccurrence(data: {
+    event1: createEvent(data: {
         name: "Evasion de Centrale Moutte"
         description: "A déclenche une émeute au sein de Centrale Moutte et s'évade dans la confusion."
         startDate: "2017-11-21T00:00:00"

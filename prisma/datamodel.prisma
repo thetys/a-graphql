@@ -12,7 +12,7 @@ type Place {
     description: String!
 }
 
-type Occurrence {
+type Event {
     id: ID! @unique
     createdAt: DateTime!
     name: String!

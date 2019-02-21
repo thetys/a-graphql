@@ -6,12 +6,12 @@ function places(parent, args, context) {
   return context.prisma.places();
 }
 
-function occurrences(parent, args, context) {
-  return context.prisma.occurrences();
+function events(parent, args, context) {
+  return context.prisma.events();
 }
 
 module.exports = {
   characters,
   places,
-  occurrences
+  events
 };

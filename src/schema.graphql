@@ -5,7 +5,7 @@ scalar DateTime
 type Query {
     characters: [Character!]!
     places: [Place!]!
-    occurrences: [Occurrence!]!
+    events: [Event!]!
 }
 
 type Mutation {
@@ -15,17 +15,17 @@ type Mutation {
     createPlace(name: String!, description: String!): Place!
     updatePlace(id: ID!, name: String, description: String): Place
     deletePlace(id: ID!): Place
-    createOccurrence(
+    createEvent(
         name: String!, description: String!,
         startDate: DateTime!, endDate: DateTime,
         characters: [ID!], places: [ID!]
-    ): Occurrence!
-    updateOccurrence(
+    ): Event!
+    updateEvent(
         id: ID!, name: String, description: String,
         startDate: DateTime, endDate: DateTime,
         characters: [ID!], places: [ID!]
-    ): Occurrence
-    deleteOccurrence(id: ID!): Occurrence
+    ): Event
+    deleteEvent(id: ID!): Event
 }
 
 type Character {
@@ -40,7 +40,7 @@ type Place {
     description: String!
 }
 
-type Occurrence {
+type Event {
     id: ID!
     name: String!
     description: String!
