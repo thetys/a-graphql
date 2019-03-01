@@ -2,6 +2,8 @@ scalar Date
 scalar Time
 scalar DateTime
 
+union AllContent = Character | Place | Event
+
 type Query {
     characters: [Character!]!
     character(id: ID!): Character
@@ -9,6 +11,7 @@ type Query {
     place(id: ID!): Place
     events: [Event!]!
     event(id: ID!): Event
+    search(id: ID!): AllContent
 }
 
 type Mutation {

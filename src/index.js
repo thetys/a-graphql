@@ -5,11 +5,13 @@ const {prisma} = require('./generated/prisma-client');
 const Query = require('./resolvers/Query');
 const Mutation = require('./resolvers/Mutation');
 const Event = require('./resolvers/Event');
+const AllContent = require('./resolvers/AllContent');
 
 const resolvers = {
   Query,
   Mutation,
   Event,
+  AllContent,
   Date: GraphQLDate,
   Time: GraphQLTime,
   DateTime: GraphQLDateTime
