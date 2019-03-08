@@ -1,6 +1,7 @@
 import {GraphQLDate, GraphQLDateTime, GraphQLTime} from 'graphql-iso-date';
-import {GraphQLServer} from 'graphql-yoga';
+import {ApolloServer} from 'apollo-server';
 import {prisma} from './generated/prisma-client';
+
 
 import Query from './resolvers/Query';
 import Mutation from './resolvers/Mutation';
@@ -17,7 +18,7 @@ const resolvers = {
   DateTime: GraphQLDateTime,
 };
 
-const server = new GraphQLServer({
+const server = new ApolloServer({
   typeDefs: './src/schema.graphql',
   resolvers,
   context: (request) => {
@@ -28,6 +29,8 @@ const server = new GraphQLServer({
   },
 });
 
-server.start({endpoint: '/'}, ({endpoint}) =>
-  console.log(`Server is running on http://localhost:4000${endpoint}`)
-);
+server
+    .listen()
+    .then(({url}) =>
+      console.log(`Server is running on http://localhost:4000${endpoint}`)
+    );
