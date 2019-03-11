@@ -1,4 +1,8 @@
-const {GraphQLDate, GraphQLDateTime, GraphQLTime} = require('graphql-iso-date');
+const {
+  GraphQLDate,
+  GraphQLDateTime,
+  GraphQLTime,
+} = require('graphql-iso-date');
 const {GraphQLServer} = require('graphql-yoga');
 const {prisma} = require('./generated/prisma-client');
 
@@ -14,21 +18,20 @@ const resolvers = {
   AllContent,
   Date: GraphQLDate,
   Time: GraphQLTime,
-  DateTime: GraphQLDateTime
+  DateTime: GraphQLDateTime,
 };
 
 const server = new GraphQLServer({
   typeDefs: './src/schema.graphql',
   resolvers,
-  context: request => {
+  context: (request) => {
     return {
       ...request,
-      prisma
-    }
-  }
+      prisma,
+    };
+  },
 });
 
-server.start(
-    { endpoint: '/' },
-    ({ endpoint }) => console.log(`Server is running on http://localhost:4000${endpoint}`)
+server.start({endpoint: '/'}, ({endpoint}) =>
+  console.log(`Server is running on http://localhost:4000${endpoint}`)
 );
