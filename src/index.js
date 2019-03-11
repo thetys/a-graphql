@@ -1,12 +1,16 @@
+import fs from 'fs';
 import {GraphQLDate, GraphQLDateTime, GraphQLTime} from 'graphql-iso-date';
-import {ApolloServer} from 'apollo-server';
+import {ApolloServer, gql} from 'apollo-server';
 import {prisma} from './generated/prisma-client';
-
 
 import Query from './resolvers/Query';
 import Mutation from './resolvers/Mutation';
 import Event from './resolvers/Event';
 import AllContent from './resolvers/AllContent';
+
+const typeDefs = gql(
+    fs.readFileSync(__dirname.concat('/schema.graphql'), 'utf8')
+);
 
 const resolvers = {
   Query,
@@ -19,7 +23,7 @@ const resolvers = {
 };
 
 const server = new ApolloServer({
-  typeDefs: './src/schema.graphql',
+  typeDefs,
   resolvers,
   context: (request) => {
     return {
@@ -32,5 +36,7 @@ const server = new ApolloServer({
 server
     .listen()
     .then(({url}) =>
-      console.log(`Server is running on http://localhost:4000${endpoint}`)
+      console.log(
+          `Server is running on http://localhost:4000${server.graphqlPath}`
+      )
     );
