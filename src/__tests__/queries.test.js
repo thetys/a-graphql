@@ -1,22 +1,22 @@
 'use strict';
 
-const fs = require("fs");
-const path = require("path");
-const EasyGraphQLTester = require("easygraphql-tester");
+import {readFileSync} from 'fs';
+import {join} from 'path';
+import EasyGraphQLTester from 'easygraphql-tester';
 
-const schemaCode = fs.readFileSync(
-    path.join(__dirname, "..", "schema.graphql"),
-    "utf8"
+const schemaCode = readFileSync(
+    join(__dirname, '..', 'schema.graphql'),
+    'utf8'
 );
 
-describe("Queries", () => {
+describe('Queries', () => {
   let tester;
 
   beforeAll(() => {
     tester = new EasyGraphQLTester(schemaCode);
   });
 
-  it("Should get all the fields on characters", () => {
+  it('Should get all the fields on characters', () => {
     const query = `
       {
         characters {
@@ -30,7 +30,7 @@ describe("Queries", () => {
     tester.test(true, query);
   });
 
-  it("Should get all the fields on places", () => {
+  it('Should get all the fields on places', () => {
     const query = `
       {
         places {
@@ -44,7 +44,7 @@ describe("Queries", () => {
     tester.test(true, query);
   });
 
-  it("Should get all the fields on occurrences", () => {
+  it('Should get all the fields on occurrences', () => {
     const query = `
       {
         occurrences {

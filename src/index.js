@@ -1,15 +1,11 @@
-const {
-  GraphQLDate,
-  GraphQLDateTime,
-  GraphQLTime,
-} = require('graphql-iso-date');
-const {GraphQLServer} = require('graphql-yoga');
-const {prisma} = require('./generated/prisma-client');
+import {GraphQLDate, GraphQLDateTime, GraphQLTime} from 'graphql-iso-date';
+import {GraphQLServer} from 'graphql-yoga';
+import {prisma} from './generated/prisma-client';
 
-const Query = require('./resolvers/Query');
-const Mutation = require('./resolvers/Mutation');
-const Event = require('./resolvers/Event');
-const AllContent = require('./resolvers/AllContent');
+import Query from './resolvers/Query';
+import Mutation from './resolvers/Mutation';
+import Event from './resolvers/Event';
+import AllContent from './resolvers/AllContent';
 
 const resolvers = {
   Query,

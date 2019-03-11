@@ -1,45 +1,95 @@
-function characters(parent, args, context) {
+/**
+ * Get all the characters
+ * @param {object} _parent The rootValue of the server
+ * @param {object} _args Arguments passed into the field in the query
+ * @param {object} context Context of the mutation
+ * @return {FragmentableArray<Character>} Array of characters
+ */
+function characters(_parent, _args, context) {
   return context.prisma.characters();
 }
 
-function character(parent, args, context) {
+/**
+ * Get a character by its id
+ * @param {object} _parent The rootValue of the server
+ * @param {object} args Arguments passed into the field in the query
+ * @param {object} context Context of the mutation
+ * @return {CharacterPromise} A character
+ */
+function character(_parent, args, context) {
   return context.prisma.character({id: args.id});
 }
 
-function places(parent, args, context) {
+/**
+ * Get all the places
+ * @param {object} _parent The rootValue of the server
+ * @param {object} _args Arguments passed into the field in the query
+ * @param {object} context Context of the mutation
+ * @return {FragmentableArray<Place>} Array of places
+ */
+function places(_parent, _args, context) {
   return context.prisma.places();
 }
 
-function place(parent, args, context) {
+/**
+ * Get a place by its id
+ * @param {object} _parent The rootValue of the server
+ * @param {object} args Arguments passed into the field in the query
+ * @param {object} context Context of the mutation
+ * @return {PlacePromise} A place
+ */
+function place(_parent, args, context) {
   return context.prisma.place({id: args.id});
 }
 
-function events(parent, args, context) {
+/**
+ * Get all the events
+ * @param {object} _parent The rootValue of the server
+ * @param {object} _args Arguments passed into the field in the query
+ * @param {object} context Context of the mutation
+ * @return {FragmentableArray<Event>} Array of events
+ */
+function events(_parent, _args, context) {
   return context.prisma.events();
 }
 
-function event(parent, args, context) {
+/**
+ * Get an event by its id
+ * @param {object} _parent The rootValue of the server
+ * @param {object} args Arguments passed into the field in the query
+ * @param {object} context Context of the mutation
+ * @return {EventPromise} An event
+ */
+function event(_parent, args, context) {
   return context.prisma.event({id: args.id});
 }
 
-function search(parent, args, context) {
+/**
+ * Get a character or a place or an event by its id
+ * @param {object} _parent The rootValue of the server
+ * @param {object} args Arguments passed into the field in the query
+ * @param {object} context Context of the mutation
+ * @return {CharacterPromise|PlacePromise|EventPromise} A character or a place
+ * or an event
+ */
+function search(_parent, args, context) {
   return Promise.all([
-    context.prisma.character({id: args.id}).then(character => {
+    context.prisma.character({id: args.id}).then((character) => {
       character.__typename = 'Character';
       return character;
     }),
-    context.prisma.place({id: args.id}).then(place => {
+    context.prisma.place({id: args.id}).then((place) => {
       place.__typename = 'Place';
       return place;
     }),
-    context.prisma.event({id: args.id}).then(event => {
+    context.prisma.event({id: args.id}).then((event) => {
       event.__typename = 'Event';
       return event;
     }),
-  ]).then(values => values.find(elem => elem));
+  ]).then((values) => values.find((elem) => elem));
 }
 
-module.exports = {
+export default {
   characters,
   character,
   places,
