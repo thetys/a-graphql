@@ -2,10 +2,12 @@
   "name": "a-graphql",
   "version": "1.0.0",
   "description": "GraphQL service for A project",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "scripts": {
     "prisma:deploy": "prisma deploy",
-    "start": "nodemon --exec babel-node src/index.js"
+    "start": "nodemon --exec babel-node --extensions '.ts,.tsx' src/index.ts",
+    "debug": "nodemon --inspect --exec babel-node --extensions '.ts,.tsx' src/index.ts",
+    "check-types": "tsc"
   },
   "repository": {
     "type": "git",
@@ -26,8 +28,13 @@
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/graphql-iso-date": "^3.3.1",
     "@types/jest": "^23.3.14",
+    "@types/node": "^11.11.0",
     "easygraphql-tester": "^4.1.4",
     "eslint": "^5.15.1",
     "eslint-config-google": "^0.12.0",
@@ -38,6 +45,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^24.4.0",
     "nodemon": "^1.18.10",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "typescript": "^3.3.3333"
   }
 }

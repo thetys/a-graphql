@@ -3,7 +3,7 @@
  * @param {object} obj Result of the Allcontent query
  * @return {string} The type of obj
  */
-function __resolveType(obj) {
+function __resolveType(obj: { __typename: string; }): string {
   return obj.__typename;
 }
 

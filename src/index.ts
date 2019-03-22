@@ -1,6 +1,6 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import {GraphQLDate, GraphQLDateTime, GraphQLTime} from 'graphql-iso-date';
-import {ApolloServer, gql} from 'apollo-server';
+import {ApolloServer, gql, IResolvers} from 'apollo-server';
 import {prisma} from './generated/prisma-client';
 
 import Query from './resolvers/Query';
@@ -12,7 +12,7 @@ const typeDefs = gql(
     fs.readFileSync(__dirname.concat('/schema.graphql'), 'utf8')
 );
 
-const resolvers = {
+const resolvers: IResolvers = {
   Query,
   Mutation,
   Event,
