@@ -64,23 +64,29 @@ async function search(
     context: { prisma: Prisma }
 ): Promise<any> {
   const values = await Promise.all([
-    context.prisma.character({ id: args.id }).then((character) => {
-      return {
-        ...character,
-        __typename: 'Character'
-      };
+    context.prisma.character({id: args.id}).then((character) => {
+      return character
+        ? {
+          ...character,
+          __typename: 'Character',
+        }
+        : null;
     }),
-    context.prisma.place({ id: args.id }).then((place) => {
-      return {
-        ...place,
-        __typename: 'Place'
-      };
+    context.prisma.place({id: args.id}).then((place) => {
+      return place
+        ? {
+          ...place,
+          __typename: 'Place',
+        }
+        : null;
     }),
-    context.prisma.event({ id: args.id }).then((event) => {
-      return {
-        ...event,
-        __typename: 'Event'
-      };
+    context.prisma.event({id: args.id}).then((event) => {
+      return event
+        ? {
+          ...event,
+          __typename: 'Event',
+        }
+        : null;
     }),
   ]);
   return values.find((elem) => elem !== null);
