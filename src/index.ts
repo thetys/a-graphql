@@ -31,6 +31,9 @@ const server = new ApolloServer({
       prisma,
     };
   },
+  engine: {
+    apiKey: 'service:thetys-3346:CmXrqJQre_JzeZMifUKOfw',
+  },
 });
 
 server
